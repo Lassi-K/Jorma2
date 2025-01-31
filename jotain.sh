@@ -33,7 +33,7 @@ do
 		read input
 	
 	
-	elif [[ $input == "mene ovelle" ]]: then
+	elif [[ $input == "mene ovelle" ]]; then
 		unset input
 		ovella=True
 
