@@ -44,5 +44,15 @@ do
 		echo -n ">> "
 		read input
 
+	
+	elif [[ $input == "mene ikkunalle" ]]; then
+		unset input
+		
+		echo "Kävellään..."
+		sleep 0.3
+		echo "Ikkunalla"
+
+		echo -n ">> "
+		read input
 	fi
 done
