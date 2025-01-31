@@ -6,6 +6,8 @@ echo "Voit ohjata Jormaa komennoilla, kuten <katso ympärillesi> <ota esine> <k�
 echo "Olet Jorma"
 
 paikka=selli
+ikkunalla=False
+ovella=False
 
 echo -n ">> "
 read input
@@ -27,7 +29,7 @@ do
 		echo "Paskalla"
 		sleep 3m
 
-		echo "Nytton suali tyhjä"
+		echo "Nytt on suali tyhjä"
 
 		echo -n ">> "
 		read input
@@ -43,8 +45,28 @@ do
 
 		echo -n ">> "
 		read input
-
 	
+	
+	elif [[ $input == "katso ovea" && $ovella == "True" ]]; then
+		unset input
+
+		echo "Ovi on rautaa ja siinä on pieni ikkuna jossa on kalterit"
+		echo "Ovessa on suuri lukko ja se on lukittu"
+
+		echo -n ">> "
+		read input
+
+
+	elif [[ $input == "katso ikkunasta" && $ovella == "True" && $ikkunalla == "False" ]]; then
+		unset input
+
+		echo "Näet käytävän jota kiertää aseistettu vartija"
+		echo "Hän ohittaa sellin oven 2 minuutin välein"
+		
+		echo -n ">> "
+		read input
+	
+
 	elif [[ $input == "mene ikkunalle" ]]; then
 		unset input
 		ikkunalla=True
@@ -61,11 +83,11 @@ do
 	elif [[ $input == "katso ikkunasta" && $ikkunalla == "True" || $input == "katso ikkunasta ulos" && $ikkunalla == "True" || $input == "katso ulos" && $ikkunalla == "True" ]]; then
 		unset input
 
-		echo "Ikkunasta näkyy vankilan muuri"
+		echo "Ikkunan kaltereiden välistä näkyy vankilan muuri"
 
 		echo -n ">> "
 		read input
-
+	
 	else
 		echo "Ma ei ummarrrra"
 		echo -n ">> "
