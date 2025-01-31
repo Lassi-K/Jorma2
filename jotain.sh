@@ -47,12 +47,29 @@ do
 	
 	elif [[ $input == "mene ikkunalle" ]]; then
 		unset input
-		
+		ikkunalla=True
+		ovella=False
+
 		echo "Kävellään..."
 		sleep 0.3
 		echo "Ikkunalla"
 
 		echo -n ">> "
 		read input
+	
+	
+	elif [[ $input == "katso ikkunasta" && $ikkunalla == "True" || $input == "katso ikkunasta ulos" && $ikkunalla == "True" || $input == "katso ulos" && $ikkunalla == "True" ]]; then
+		unset input
+
+		echo "Ikkunasta näkyy vankilan muuri"
+
+		echo -n ">> "
+		read input
+
+	else
+		echo "Ma ei ummarrrra"
+		echo -n ">> "
+		read input
 	fi
 done
+
