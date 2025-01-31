@@ -31,5 +31,18 @@ do
 
 		echo -n ">> "
 		read input
+	
+	
+	elif [[ $input == "mene ovelle" ]]: then
+		unset input
+		ovella=True
+
+		echo "Kävellään..."
+		sleep 0.3
+		echo "Ovella"
+
+		echo -n ">> "
+		read input
+
 	fi
 done
