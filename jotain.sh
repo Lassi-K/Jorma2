@@ -1,7 +1,7 @@
 #!/bin/bash
 
 echo "Jorma on vankilassa, koska hän virtsasi maakaivon kannelle humalassa"
-echo "Auta oikeusmurhan uhrina toimivaa Jormaa pakenemaan vankilasta"
+echo "Auta oikeusmurhan uhriksi joutunutta Jormaa pakenemaan vankilasta"
 echo "Voit ohjata Jormaa komennoilla, kuten <katso ympärillesi> <ota esine> <käytä esinettä> <mene> jne."
 echo "Olet Jorma"
 
