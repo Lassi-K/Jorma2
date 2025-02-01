@@ -27,7 +27,7 @@ do
 	
 	elif [[ $input == "mene paskalle" ]]; then
 		unset input
-		paskottu=True
+		paskannettu=True
 		echo "Paskalla"
 		sleep 3m
 
@@ -163,6 +163,7 @@ do
 	
 	elif [[ $input == "mene vasemmalle" ]]; then
 		unset input
+		suunta=vasen
 
 		echo "Törmäät vartijaan, ja hän ampuu sinua mahaan."
 		sleep 0.7
@@ -174,13 +175,70 @@ do
 	
 	elif [[ $input == "mene oikealle" ]]; then
 		unset input
-
+		suunta=oikea
+		
 		echo "Tapaat toisen sellistään karanneen vangin, ja päätätte paeta yhdessä"
 
 		echo -n ">> "
 		read input
 	
+	
+	elif [[ $input == "mene oikealle" && $paskannettu == "True" ]]; then
+		unset input
+		suunta=oikea
 
+		echo "Tapaat toisen sellistään karanneen vangin, joka kysyy:"
+		sleep 0.5
+		echo "-Miksi sinulla ei ole housuja jalassa?"
+		sleep 0.5
+		echo "-Hups, unohdin nostaa ne käytyäni paskalla"
+
+		echo "Päätätte paeta yhdessä"
+
+		echo -n ">> "
+		read input
+	
+	
+	elif [[ $input == "mene eteenpäin" ]]; then
+		unset input
+		suunta=eteen
+
+		echo "Umpikuja"
+
+		echo -n ">> "
+		read input
+	
+	
+	elif [[ $input == "mene takaisin" && $suunta == "eteen" ]]; then
+		unset input
+
+		echo "Takaisin ovella"
+
+		echo -n ">> "
+		read input
+
+
+	else
+		unset input
+		echo "Ma ei ummarrrra"
+		echo -n ">> "
+		read input
+	fi
+done
+
+
+while [[ $suunta == "oikea" && $paikka == "käytävä" ]];
+do
+	if [[ $input == "katso ympärillesi" ]]; then
+		unset input
+
+		echo "Olet toisen vangin kanssa käytävässä."
+		echo "Aiotte paeta yhdessä"
+
+		echo -n ">> "
+		read input
+
+	
 	else
 		unset input
 		echo "Ma ei ummarrrra"
