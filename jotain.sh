@@ -161,7 +161,7 @@ do
 		read input
 
 	
-	elif [[ $input == "mene oikealle" ]]; then
+	elif [[ $input == "mene vasemmalle" ]]; then
 		unset input
 
 		echo "Törmäät vartijaan, ja hän ampuu sinua mahaan."
@@ -170,6 +170,16 @@ do
 		sleep 1
 		echo "Aloita peli alusta jatkaaksesi"
 		break
+
+	
+	elif [[ $input == "mene oikealle" ]]; then
+		unset input
+
+		echo "Tapaat toisen sellistään karanneen vangin, ja päätätte paeta yhdessä"
+
+		echo -n ">> "
+		read input
+	
 
 	else
 		unset input
