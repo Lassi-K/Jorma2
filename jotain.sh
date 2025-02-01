@@ -17,10 +17,8 @@ while [[ $paikka == "selli" ]];
 do
 	if [[ $input == "katso ympärillesi" ]]; then
 		unset input
-
 		echo "Olet sellissä, jonka toisessa seinässä  on ikkuna ja toisessa ovi."
 		echo "Istut kapealla sängyllä, jota vastapäätä on WC pönttö"
-
 		echo -n ">> "
 		read input
 
@@ -30,9 +28,7 @@ do
 		paskannettu=True
 		echo "Paskalla"
 		sleep 3m
-
 		echo "Nytt on suali tyhjä"
-
 		echo -n ">> "
 		read input
 	
@@ -41,21 +37,17 @@ do
 		unset input
 		ovella=True
 		ikkunalla=False
-
 		echo "Kävellään..."
 		sleep 0.3
 		echo "Ovella"
-
 		echo -n ">> "
 		read input
 	
 	
 	elif [[ $input == "katso ovea" && $ovella == "True" && $ikkunalla == "False" ]]; then
 		unset input
-
 		echo "Ovi on rautaa ja siinä on pieni ikkuna jossa on kalterit"
 		echo "Ovessa on suuri lukko ja se on lukittu"
-
 		echo -n ">> "
 		read input
 
@@ -63,10 +55,8 @@ do
 	elif [[ $input == "käytä avainta oveen" && $ovella == "True" && $ikkunalla == "False" && $avain == "True" ]]; then
 		unset input
 		auki=True
-
 		echo "Ovi aukesi"
 		echo "Sulje ovi nopeasti, ennen kuin vartija huomaa!"
-
 		echo -n ">> "
 		read input
 
@@ -74,28 +64,22 @@ do
 	elif [[ $input == "sulje ovi" && $auki == "True" ]]; then
 		unset input
 		auki=False
-
 		echo "Ovi on nyt kiinni"
-	
 		echo -n ">> "
 		read input
 
 	elif [[ $input == "mene ovesta" && $auki == "True" ]]; then
 		unset input
 		paikka=käytävä
-
 		echo "Olet nyt käytävässä"
-
 		echo -n ">> "
 		read input
 	
 	
 	elif [[ $input == "katso ikkunasta" && $ovella == "True" && $ikkunalla == "False" ]]; then
 		unset input
-
 		echo "Näet käytävän jota kiertää aseistettu vartija"
 		echo "Hän ohittaa sellin oven 2 minuutin välein"
-		
 		echo -n ">> "
 		read input
 	
@@ -104,29 +88,23 @@ do
 		unset input
 		ikkunalla=True
 		ovella=False
-
 		echo "Kävellään..."
 		sleep 0.3
 		echo "Ikkunalla"
-
 		echo -n ">> "
 		read input
-	
+
 	
 	elif [[ $input == "katso ikkunasta" && $ikkunalla == "True" || $input == "katso ikkunasta ulos" && $ikkunalla == "True" || $input == "katso ulos" && $ikkunalla == "True" ]]; then
 		unset input
-
 		echo "Ikkunan kaltereiden välistä näkyy vankilan muuri"
-
 		echo -n ">> "
 		read input
 	
 	
 	elif [[ $input == "katso ikkunasta vasemmalle" && $ikkunalla == "True" && $ovella == "False" ]]; then
 		unset input
-
 		echo "Ikkunan ulkopuolella seinässä vasemmalla on naula, josta roikkuu avain!"
-
 		echo -n ">> "
 		read input
 
@@ -134,9 +112,7 @@ do
 	elif [[ $input == "ota avain" && $ikkunalla == "True" && $ovella == "False" ]]; then
 		unset input
 		avain=True
-
 		echo "Avain otettu"
-
 		echo -n ">> "
 		read input	
 	
@@ -153,18 +129,14 @@ while [[ $paikka == "käytävä" ]];
 do
 	if [[ $input == "katso ympärillesi" ]]; then
 		unset input
-
 		echo "Olet käytävässä. Käytävä jatkuu oikealle, vasemmalle, ja eteenpäin."
 		echo "Voit valita, mihin suuntaan menet"
-
 		echo -n ">> "
 		read input
 
 	
 	elif [[ $input == "mene vasemmalle" ]]; then
 		unset input
-		suunta=vasen
-
 		echo "Törmäät vartijaan, ja hän ampuu sinua mahaan."
 		sleep 0.7
 		echo "Kuolet."
@@ -175,45 +147,36 @@ do
 	
 	elif [[ $input == "mene oikealle" ]]; then
 		unset input
-		suunta=oikea
-		
+		paikka=oikea
 		echo "Tapaat toisen sellistään karanneen vangin, ja päätätte paeta yhdessä"
-
 		echo -n ">> "
 		read input
 	
 	
 	elif [[ $input == "mene oikealle" && $paskannettu == "True" ]]; then
 		unset input
-		suunta=oikea
-
+		paikka=oikea
 		echo "Tapaat toisen sellistään karanneen vangin, joka kysyy:"
 		sleep 0.5
 		echo "-Miksi sinulla ei ole housuja jalassa?"
 		sleep 0.5
 		echo "-Hups, unohdin nostaa ne käytyäni paskalla"
-
 		echo "Päätätte paeta yhdessä"
-
 		echo -n ">> "
 		read input
 	
 	
 	elif [[ $input == "mene eteenpäin" ]]; then
 		unset input
-		suunta=eteen
-
+		umpikuja=True
 		echo "Umpikuja"
-
 		echo -n ">> "
 		read input
 	
 	
-	elif [[ $input == "mene takaisin" && $suunta == "eteen" ]]; then
+	elif [[ $input == "mene takaisin" && $umpikuja == "True" ]]; then
 		unset input
-
 		echo "Takaisin ovella"
-
 		echo -n ">> "
 		read input
 
@@ -227,14 +190,19 @@ do
 done
 
 
-while [[ $suunta == "oikea" && $paikka == "käytävä" ]];
+while [[ $paikka == "oikea" ]];
 do
 	if [[ $input == "katso ympärillesi" ]]; then
 		unset input
-
-		echo "Olet toisen vangin kanssa käytävässä."
+		echo "Olet toisen vangin kanssa käytävässä, joka jatkuu eteenpäin."
 		echo "Aiotte paeta yhdessä"
-
+		echo -n ">> "
+		read input
+	
+	
+	elif [[ $input == "mene eteenpäin" ]]; then
+		unset input
+		echo "Tulette käytävän päähän, jossa on ovi, ja ovessa kaltereilla varustettu ikkuna."
 		echo -n ">> "
 		read input
 
