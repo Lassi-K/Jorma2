@@ -26,6 +26,7 @@ do
 	
 	elif [[ $input == "mene paskalle" ]]; then
 		unset input
+		paskottu=True
 		echo "Paskalla"
 		sleep 3m
 
@@ -47,7 +48,7 @@ do
 		read input
 	
 	
-	elif [[ $input == "katso ovea" && $ovella == "True" ]]; then
+	elif [[ $input == "katso ovea" && $ovella == "True" && $ikkunalla == "False" ]]; then
 		unset input
 
 		echo "Ovi on rautaa ja siinä on pieni ikkuna jossa on kalterit"
@@ -88,6 +89,25 @@ do
 		echo -n ">> "
 		read input
 	
+	
+	elif [[ $input == "katso ikkunasta vasemmalle" && $ikkunalla == "True" && $ovella == "False" ]]; then
+		unset input
+
+		echo "Ikkunan ulkopuolella seinässä vasemmalla on naula, josta roikkuu avain!"
+
+		echo -n ">> "
+		read input
+
+	
+	elif [[ $input == "ota avain" && $ikkunalla == "True" && $ovella == "False" ]]; then
+		unset input
+
+		echo "Avaimet otettu"
+
+		echo -n ">> "
+		read input	
+	
+
 	else
 		echo "Ma ei ummarrrra"
 		echo -n ">> "
