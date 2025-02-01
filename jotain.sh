@@ -147,3 +147,34 @@ do
 		read input
 	fi
 done
+
+
+while [[ $paikka == "käytävä" ]];
+do
+	if [[ $input == "katso ympärillesi" ]]; then
+		unset input
+
+		echo "Olet käytävässä. Käytävä jatkuu oikealle, vasemmalle, ja eteenpäin."
+		echo "Voit valita, mihin suuntaan menet"
+
+		echo -n ">> "
+		read input
+
+	
+	elif [[ $input == "mene oikealle" ]]; then
+		unset input
+
+		echo "Törmäät vartijaan, ja hän ampuu sinua mahaan."
+		sleep 0.7
+		echo "Kuolet."
+		sleep 1
+		echo "Aloita peli alusta jatkaaksesi"
+		break
+
+	else
+		unset input
+		echo "Ma ei ummarrrra"
+		echo -n ">> "
+		read input
+	fi
+done
