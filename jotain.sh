@@ -102,7 +102,7 @@ do
 	elif [[ $input == "ota avain" && $ikkunalla == "True" && $ovella == "False" ]]; then
 		unset input
 
-		echo "Avaimet otettu"
+		echo "Avain otettu"
 
 		echo -n ">> "
 		read input	
