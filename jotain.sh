@@ -8,6 +8,7 @@ echo "Olet Jorma"
 paikka=selli
 ikkunalla=False
 ovella=False
+avain=False
 
 echo -n ">> "
 read input
@@ -39,6 +40,7 @@ do
 	elif [[ $input == "mene ovelle" ]]; then
 		unset input
 		ovella=True
+		ikkunalla=False
 
 		echo "Kävellään..."
 		sleep 0.3
@@ -57,7 +59,37 @@ do
 		echo -n ">> "
 		read input
 
+	
+	elif [[ $input == "käytä avainta oveen" && $ovella == "True" && $ikkunalla == "False" && $avain == "True" ]]; then
+		unset input
+		auki=True
 
+		echo "Ovi aukesi"
+		echo "Sulje ovi nopeasti, ennen kuin vartija huomaa!"
+
+		echo -n ">> "
+		read input
+
+
+	elif [[ $input == "sulje ovi" && $auki == "True" ]]; then
+		unset input
+		auki=False
+
+		echo "Ovi on nyt kiinni"
+	
+		echo -n ">> "
+		read input
+
+	elif [[ $input == "mene ovesta" && $auki == "True" ]]; then
+		unset input
+		paikka=käytävä
+
+		echo "Olet nyt käytävässä"
+
+		echo -n ">> "
+		read input
+	
+	
 	elif [[ $input == "katso ikkunasta" && $ovella == "True" && $ikkunalla == "False" ]]; then
 		unset input
 
@@ -101,6 +133,7 @@ do
 	
 	elif [[ $input == "ota avain" && $ikkunalla == "True" && $ovella == "False" ]]; then
 		unset input
+		avain=True
 
 		echo "Avain otettu"
 
@@ -114,4 +147,3 @@ do
 		read input
 	fi
 done
-
