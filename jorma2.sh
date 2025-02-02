@@ -203,23 +203,31 @@ do
 	
 	elif [[ $input == "mene eteenpäin" ]]; then
 		unset input
-		eteenpain=True
+		vartija=tulossa
 		echo "Tulette käytävän päähän, jossa on ovi, ja ovessa kaltereilla varustettu ikkuna."
-		sleep 0.7
+		sleep 1
 		echo "Käytävästä kuuluu ääniä"
-		sleep 0.6
-		echo "Sieltä tulee vartija"
-		echo "Vartijalla ei ole asetta"
+		sleep 1
+		echo "Sieltä tulee vartija, mutta hänellä ei ole asetta"
 		echo -n ">> "
 		read input
 		
 
-	elif [[ $input == "katso ovea" && $eteenpain == "True" ]]; then
+	elif [[ $input == "lyö vartijaa" && $vartija == "tulossa" ]]; then
 		unset input
-		echo "Se on samanlainen, kuin kaikkien muidenkin sellien ovet, mutta siinä on paljon järeämpi lukko, kuin muissa"
+		vartija=kaatui
+		echo "Lyönti osuu vartijaa päähän, ja häneltä lähtee taju"
+		echo -n ">> "
+		read input
 		
+		
+	elif [[ $input == "tutki vartijan taskut" && $vartija == "kaatui" ]]; then
+		unset input
+		echo "Vartijan taskusta löytyi avain!"
+		echo -n ">> "
+		read input
 	
-	
+
 	else
 		unset input
 		echo "Ma ei ummarrrra"
