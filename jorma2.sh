@@ -228,6 +228,13 @@ do
 		read input
 	
 
+	elif [[ $input == "käytä avainta oveen" ]]; then
+		unset input
+		echo "Ovi aukesi"
+		echo -n ">> "
+		read input
+	
+	
 	else
 		unset input
 		echo "Ma ei ummarrrra"
