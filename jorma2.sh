@@ -230,13 +230,38 @@ do
 
 	elif [[ $input == "käytä avainta oveen" ]]; then
 		unset input
+		auki=True
 		echo "Ovi aukesi"
 		echo -n ">> "
 		read input
+
 	
-	
+	elif [[ $input == "mene ovesta" && $auki == "True" ]]; then
+		unset input
+		paikka=varasto
+		echo "Tulette pimeään varastoon"
+		echo -n ">> "
+		read input
+
+		
 	else
 		unset input
+		echo "Ma ei ummarrrra"
+		echo -n ">> "
+		read input
+	fi
+done
+
+
+while [[ $paikka == "varasto" ]];
+do
+	if [[ $input == "katso ympärillesi" ]]; then
+		unset input
+		echo "Olette pimeässä varastossa, jossa on pahvilaatikoita ja ikkuna"
+		echo -n ">> "
+		read input
+
+	else
 		echo "Ma ei ummarrrra"
 		echo -n ">> "
 		read input
