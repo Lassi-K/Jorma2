@@ -257,10 +257,65 @@ while [[ $paikka == "varasto" ]];
 do
 	if [[ $input == "katso ympärillesi" ]]; then
 		unset input
-		echo "Olette pimeässä varastossa, jossa on pahvilaatikoita ja ikkuna"
+		echo "Olette pimeässä varastossa, jossa on pahvilaatikoita ja ikkuna ja katossa on ilmastointiräppänä"
+		echo -n ">> "
+		read input
+	
+
+	elif [[ $input == "mene ikkunalle" ]]; then
+		unset input
+		ikkunalla=True
+		echo "Kävellään..."
+		sleep 1
+		echo "Ikkunalla"
 		echo -n ">> "
 		read input
 
+	
+	elif [[ $input == "katso ikkunasta" && $ikkunalla == "True" ]]; then
+		unset input
+		echo "Ikkunasta näkyy vankilan muuri"
+		echo -n ">> "
+		read input
+	
+
+	elif [[ $input == "katso räppänää" || $input == "katso ilmastointiräppänää" ]]; then
+		unset input
+		echo "Siinä on ritilä, joka on kiinni neljällä ruuvilla"
+		echo -n ">> "
+		read input
+	
+
+	elif [[ $input == "avaa räppänä" || $input == "avaa ilmastointiräppänä" ]]; then
+		unset input
+		echo "Se on kiinni neljällä ruuvilla"
+		echo -n ">> "
+		read input
+
+		
+	elif [[ $input == "katso pahvilaatikoita" ]]; then
+		unset input
+		echo "Laatikoita on monta"
+		echo -n ">> "
+		read input
+
+
+	elif [[ $input == "avaa pahvilaatikko" || $input == "avaa laatikko" ]]; then
+		unset input
+		laatikko=auki
+		echo "Avataan..."
+		sleep 1
+		echo "Siellä on työkaluja mm. saha, vasara, ja ruuvimeisseli"
+		echo -n ">> "
+		read input
+
+
+	elif [[ $input == "ota ruuvimeisseli" && $laatikko=auki || $input == "ota meisseli" && $laatikko == "auki" ]]; then
+		unset input
+		echo "Meisseli otettu"
+		echo -n ">> "
+		read input
+	
 	else
 		echo "Ma ei ummarrrra"
 		echo -n ">> "
