@@ -310,9 +310,19 @@ do
 		read input
 
 
-	elif [[ $input == "ota ruuvimeisseli" && $laatikko=auki || $input == "ota meisseli" && $laatikko == "auki" ]]; then
+	elif [[ $input == "ota ruuvimeisseli" && $laatikko == "auki" || $input == "ota meisseli" && $laatikko == "auki" ]]; then
 		unset input
+		meisseli=True
 		echo "Meisseli otettu"
+		echo -n ">> "
+		read input
+	
+	
+	elif [[ $input == "käytä meisseliä räppänään" && $meisseli == "True" ]]; then
+		unset input
+		echo "Ruuvataan..."
+		sleep 2
+		echo "Räppänä auki"
 		echo -n ">> "
 		read input
 	
